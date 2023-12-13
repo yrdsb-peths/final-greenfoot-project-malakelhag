@@ -12,4 +12,4 @@ public class MyWorld extends World {
         Rat rat = new Rat();
         addObject(rat, getWidth() / 2, getHeight() / 2); // Place Rat in the center of the world
     }
-}
+}//hi
