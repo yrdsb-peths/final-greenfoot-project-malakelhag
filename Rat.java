@@ -6,8 +6,8 @@ public class Rat extends Actor {
     
     
     public Rat() {
-        this.winningX = 0;
-        this.winningY = 0;
+        this.winningX = 310;
+        this.winningY = 20;
     }
     
     public Rat(int winningX, int winningY) {
@@ -50,10 +50,8 @@ public class Rat extends Actor {
     
     
     private void checkWin() {
-        // Check if the rat is at the winning location
         if (getX() == winningX && getY() == winningY) {
-            Greenfoot.stop(); // Stop the game
-            System.out.println("Congratulations! You won!");
+            Greenfoot.setWorld(new Winner()); 
         }
     }
 }

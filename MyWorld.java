@@ -7,9 +7,9 @@ public class MyWorld extends World {
         GreenfootImage background = new GreenfootImage("Level A.png");
         setBackground(background);
         
-        int winningX = 300;
-        int winningY = 395;
+        int winningX = 310;
+        int winningY = 20;
         Rat rat = new Rat();
         addObject(rat, getWidth() / 2, getHeight() / 2); // Place Rat in the center of the world
     }
-}//hi
+}
