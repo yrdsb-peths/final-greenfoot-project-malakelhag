@@ -10,6 +10,6 @@ public class MyWorld extends World {
         int winningX = 310;
         int winningY = 20;
         Rat rat = new Rat();
-        addObject(rat, getWidth() / 2, getHeight() / 2); // Place Rat in the center of the world
+        addObject(rat, 310, 370); // Place Rat in the center of the world
     }
 }
