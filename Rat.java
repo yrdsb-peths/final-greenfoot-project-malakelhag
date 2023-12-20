@@ -1,18 +1,20 @@
 import greenfoot.*;
 
 public class Rat extends Actor {
-    private int winningX; 
-    private int winningY; 
-    
-    
+    private int[] winningXPositions;
+    private int[] winningYPositions;
+
     public Rat() {
-        this.winningX = 310;
-        this.winningY = 20;
+        GreenfootImage image = getImage();
+        int newWidth = 20;
+        int newHeight = 20;
+        image.scale(newWidth, newHeight);
+        setImage(image);
     }
-    
-    public Rat(int winningX, int winningY) {
-        this.winningX = winningX;
-        this.winningY = winningY;
+
+    public Rat(int[] winningXPositions, int[] winningYPositions) {
+        this.winningXPositions = winningXPositions;
+        this.winningYPositions = winningYPositions;
     }
 
     public void act() {
@@ -36,24 +38,36 @@ public class Rat extends Actor {
     }
 
     private boolean isAboveWall(int x, int y) {
-        Color wallColor = Color.BLACK; // Adjust based on your maze image
+        Color wallColor = Color.BLACK;
 
-        // Check if we are within the world boundaries
         if (x >= 0 && x < getWorld().getWidth() && y >= 0 && y < getWorld().getHeight()) {
             Color pixelColor = getWorld().getBackground().getColorAt(x, y);
             return pixelColor.equals(wallColor);
         }
 
-        // If outside the world boundaries, consider it a wall
         return true;
     }
-    
-    
+
+    private boolean isOnMarker() {
+        int x = getX();
+        int y = getY();
+
+        Color markerColor = Color.RED;
+        Color pixelColor = getWorld().getBackground().getColorAt(x, y);
+
+        return pixelColor.equals(markerColor);
+    }
+
     private void checkWin() {
-        if (getX() == winningX && getY() == winningY) {
-            Greenfoot.setWorld(new Winner()); 
+        if (isOnMarker()) {
+            Greenfoot.setWorld(new Winner());
+        } else {
+            for (int i = 0; i < winningXPositions.length; i++) {
+                if (getX() == winningXPositions[i] && getY() == winningYPositions[i]) {
+                    Greenfoot.setWorld(new Winner());
+                    break;
+                }
+            }
         }
     }
 }
-
-
