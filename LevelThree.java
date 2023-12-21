@@ -1,21 +1,13 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;  
 
-/**
- * Write a description of class LevelThree here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
-public class LevelThree extends World
-{
+public class LevelThree extends World {
+    public LevelThree() {
+        super(900, 900, 1);
+        GreenfootImage background = new GreenfootImage("Bigger.png");
+        setBackground(background);
 
-    /**
-     * Constructor for objects of class LevelThree.
-     * 
-     */
-    public LevelThree()
-    {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 400, 1); 
+        Rat rat = new Rat(800, 800); 
+        rat.getImage().scale(50, 50);
+        addObject(rat, 451, 451);
     }
 }

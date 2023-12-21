@@ -1,20 +1,17 @@
 import greenfoot.*;
 
+import greenfoot.*;
+
 public class Rat extends Actor {
-    private int[] winningXPositions;
-    private int[] winningYPositions;
+    private int initialX;
+    private int initialY;
 
-    public Rat() {
+    public Rat(int initialX, int initialY) {
+        this.initialX = initialX;
+        this.initialY = initialY;
+        setLocation(initialX, initialY);
         GreenfootImage image = getImage();
-        int newWidth = 20;
-        int newHeight = 20;
-        image.scale(newWidth, newHeight);
         setImage(image);
-    }
-
-    public Rat(int[] winningXPositions, int[] winningYPositions) {
-        this.winningXPositions = winningXPositions;
-        this.winningYPositions = winningYPositions;
     }
 
     public void act() {
@@ -60,14 +57,16 @@ public class Rat extends Actor {
 
     private void checkWin() {
         if (isOnMarker()) {
-            Greenfoot.setWorld(new Winner());
-        } else {
-            for (int i = 0; i < winningXPositions.length; i++) {
-                if (getX() == winningXPositions[i] && getY() == winningYPositions[i]) {
-                    Greenfoot.setWorld(new Winner());
-                    break;
-                }
+            if (getWorld() instanceof MyWorld) {
+                Greenfoot.setWorld(new Winner("WinnerS.png", LevelTwo.class));
+            } else if (getWorld() instanceof LevelTwo) {
+                Greenfoot.setWorld(new Winner("WinnerS.png", LevelThree.class));
+            } else if (getWorld() instanceof LevelThree) {
+                Greenfoot.setWorld(new Winner("Bigger.png", null));
             }
         }
     }
+
+
+
 }
