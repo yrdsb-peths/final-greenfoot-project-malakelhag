@@ -9,5 +9,7 @@ public class LevelThree extends World {
         Rat rat = new Rat(800, 800); 
         rat.getImage().scale(50, 50);
         addObject(rat, 451, 451);
+        
+        /// will change the picture soon.
     }
 }
