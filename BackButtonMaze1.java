@@ -1,19 +1,9 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 
-/**
- * Write a description of class BackButtonMaze1 here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
-public class BackButtonMaze1 extends Actor
-{
-    /**
-     * Act - do whatever the BackButtonMaze1 wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act()
-    {
-        // Add your action code here.
+public class BackButtonMaze1 extends Actor {
+    public void act() {
+        if (Greenfoot.mouseClicked(this)) {
+            Greenfoot.setWorld(new ChooseEdition());
+        }
     }
 }

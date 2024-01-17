@@ -8,13 +8,13 @@ public class ChooseEdition extends World {
 
     private void prepare() {
         BackButtonForEdition backButton = new BackButtonForEdition();
-        addObject(backButton, getWidth() / 2, getHeight() / 2);
+        addObject(backButton, 100, 350);
 
         MazeOneButton mazeOneButton = new MazeOneButton();
-        addObject(mazeOneButton, getWidth() / 2, getHeight() / 2);
+        addObject(mazeOneButton, 170, 230);
 
         MazeTwoButton mazeTwoButton = new MazeTwoButton();
-        addObject(mazeTwoButton, 400, 230);
+        addObject(mazeTwoButton, 420, 230);
     }
 
 }

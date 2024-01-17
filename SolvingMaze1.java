@@ -1,21 +1,26 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 
-/**
- * Write a description of class SolvingMaze1 here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
-public class SolvingMaze1 extends World
-{
-
-    /**
-     * Constructor for objects of class SolvingMaze1.
-     * 
-     */
-    public SolvingMaze1()
-    {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 400, 1); 
+public class SolvingMaze1 extends World {
+    public SolvingMaze1() {
+        super(600, 400, 1);
+        prepare();
     }
+
+    private void prepare() {
+        BackButtonMaze1 backButton = new BackButtonMaze1();
+        addObject(backButton, 100, 350);
+        
+        LevelOneButton levelOneButton = new LevelOneButton();
+        addObject(levelOneButton, 300, 200);
+        
+        LevelTwoButton levelTwoButton = new LevelTwoButton();
+        addObject(levelTwoButton, 300, 250);
+        
+        LevelThreeButton levelThreeButton = new LevelThreeButton();
+        addObject(levelThreeButton, 300, 300);
+
+        
+    }
+
 }
+
