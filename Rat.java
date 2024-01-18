@@ -1,14 +1,14 @@
 import greenfoot.*;
 
-import greenfoot.*;
-
 public class Rat extends Actor {
     private int initialX;
     private int initialY;
+    private LevelOne world; // Reference to the LevelOne world
 
-    public Rat(int initialX, int initialY) {
+    public Rat(int initialX, int initialY, LevelOne world) {
         this.initialX = initialX;
         this.initialY = initialY;
+        this.world = world; // Set the reference to the LevelOne world
         setLocation(initialX, initialY);
         GreenfootImage image = getImage();
         setImage(image);
@@ -19,7 +19,7 @@ public class Rat extends Actor {
         checkWin();
     }
 
-    private void handleMovement() {
+    public void handleMovement() {
         int x = getX();
         int y = getY();
 
@@ -34,6 +34,10 @@ public class Rat extends Actor {
         }
     }
 
+    public boolean checkCollision(Class<?> cls) {
+        return isTouching(cls);
+    }
+
     private boolean isAboveWall(int x, int y) {
         Color wallColor = Color.BLACK;
 
@@ -45,28 +49,14 @@ public class Rat extends Actor {
         return true;
     }
 
-    private boolean isOnMarker() {
-        int x = getX();
-        int y = getY();
-
-        Color markerColor = Color.RED;
-        Color pixelColor = getWorld().getBackground().getColorAt(x, y);
-
-        return pixelColor.equals(markerColor);
-    }
-
     private void checkWin() {
-        if (isOnMarker()) {
-            if (getWorld() instanceof MyWorld) {
-                Greenfoot.setWorld(new Winner("WinnerS.png", LevelTwo.class));
-            } else if (getWorld() instanceof LevelTwo) {
-                Greenfoot.setWorld(new Winner("WinnerS.png", LevelThree.class));
-            } else if (getWorld() instanceof LevelThree) {
-                Greenfoot.setWorld(new Winner("Bigger.png", null));
-            }
+        if (checkCollision(X.class) && !world.hasWon()) {
+            world.handleWin(); // Call the method to handle the transition to the winner class
         }
     }
-
-
-
 }
+
+
+
+
+
