@@ -12,10 +12,10 @@ public class LevelFour2 extends World {
         ratDot4.getImage().scale(30, 30);
         addObject(ratDot4, 1060, 1050);
 
-        // Add an instance of the X class
+        
         X4 xMark = new X4();
-        xMark.getImage().scale(30, 30); // Adjust the scale as needed
-        addObject(xMark, 30, 40); // Adjust position (x, y) as needed
+        xMark.getImage().scale(30, 30); 
+        addObject(xMark, 30, 40); 
     }
 
     public void act() {
