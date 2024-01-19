@@ -14,3 +14,6 @@ GreenfootImage[] playButtonImages = new GreenfootImage[3];
 
 There are some empty classes (ex: Circle, or GoodCheese) I would like to keep them because I will keep on editing the game after the class assignment is done. The Circle class, for example, was supposed to be a transparent circle surrounding the rat everywhere it goes, and acting as a view field, while the outside of the circle is all black, I couldn't manage to figure out how to do it tho, as I tried multiple ways, so I will continue to discover later.
 
+
+- also I am not sure why my level 2 & 3 images in solving maze 1 don't show up when viewed from my classmate's laptop. it shows up fine in mine.
+
