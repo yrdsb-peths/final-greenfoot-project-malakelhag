@@ -1,21 +1,18 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 
-/**
- * Write a description of class Winner2 here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
-public class Winner2 extends World
-{
-
-    /**
-     * Constructor for objects of class Winner2.
-     * 
-     */
-    public Winner2()
-    {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 400, 1); 
+public class Winner2 extends World {
+    public Winner2() {
+        super(600, 400, 1);
+        prepare();
     }
+
+    private void prepare() {
+        HomeButtonWinner2 homeButton = new HomeButtonWinner2();
+        addObject(homeButton, 100, 350);
+
+        NextButtonWinner2 nextButton = new NextButtonWinner2();
+        addObject(nextButton, 500, 340);
+        
+    }
+
 }
